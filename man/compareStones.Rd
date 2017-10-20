@@ -7,25 +7,22 @@
 compareStones(comp, simp)
 }
 \arguments{
-\item{comp}{The name of the stepping stones log file of the more complex of the two BayesTraits models.}
+\item{comp}{The name of the stepping stones log file of the more complex of
+the two BayesTraits models.}
 
-\item{simp}{The name of the stepping stone log file of the more simple of the two BayesTraits models.}
+\item{simp}{The name of the stepping stone log file of the more simple of the
+two BayesTraits models.}
 }
 \value{
-The log Bayes factor of the comparison between the more complex and the more simple model.
+The Bayes factor of the comparison between the more complex and the
+more simple model. This is not logged for saftey (e.g. in the case of a
+negative difference between complex and simple model).
 }
 \description{
 A function to extract the marginal likelihood from the stepping
 stone sampler output of two BayesTraits runs, and work out the
-log Bayes Factors.
+(NOT log) Bayes Factors.
 }
 \examples{
 compareStones("complex.model.stones.log.txt", "simple.model.stones.log.txt")
 }
-\keyword{Bayes}
-\keyword{factors}
-\keyword{hypothesis}
-\keyword{significance}
-\keyword{stepping}
-\keyword{stone}
-\keyword{testing}

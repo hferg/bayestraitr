@@ -1,11 +1,19 @@
 #' getStones
 #'
-#' Get the marginal likelihoods from a single, or vector of, stepping stones log files.
+#' Get the marginal likelihoods from from one or more stepping stones log
+#' files.
 #' @param logs A vector of one or more log files from stepping stones analysis.
+#' @param order If TRUE then the resultant data.frame is ordered according to
+#' marginal likelihood.
 #' @name getStones
+#' @return A data.frame with a row per stones file, and a column with the
+#' marginal likelihoods of each model in.
 #' @export
 
-getStones <- function(logs, order = TRUE, paramcount = FALSE) {
+getStones <- function(logs, order = TRUE) {
+  # TODO A function to count the parameters in the original model and return
+  # them as well as the marginal likelihoods (to look at improvement in
+  # marginal Lh as parameter numbers increase).
   res <- matrix(ncol = 2, nrow = length(logs))
   colnames(res) <- c("logfile", "marginalLh")
   for (i in 1:length(logs)) {

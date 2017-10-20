@@ -8,24 +8,29 @@ compPosts(logs, pars, thinning = 1, burnin = 0, alpha = 0.5,
   fontsize = 3)
 }
 \arguments{
-\item{logs}{The name of the trait data file on which BayesTraits was run, or a vector of >1 names if comparing between >1 logs.}
+\item{logs}{The name of the trait data file on which BayesTraits was run,
+or a vector of >1 names if comparing between >1 logs.}
 
-\item{pars}{A vector containing the names of two parameters to be compared. Must be a single parameter if comparing between two logs. Can 
-be subsetted from the output of getParams().}
+\item{pars}{A vector containing the names of two parameters to be compared.
+Must be a single parameter if comparing between two logs. To see which
+parameters are present in a posterior use \link[bayestraitr]{getParams}.}
 
-\item{thinning}{Thinning parameter for the posterior - defaults to 1 (all samples). 2 uses every second sample, 3 every third and so on.}
+\item{thinning}{Thinning parameter for the posterior - defaults to 1
+(all samples). 2 uses every second sample, 3 every third and so on.}
 
-\item{burnin}{The number of generations to remove from the start of the chain as burnin.}
+\item{burnin}{The number of generations to remove from the start of the
+chain as burnin. Use if the chain has not reached convergence before sampling
+began. Useful if the burnin parameter for the analysis itself was not long
+enough.}
 }
 \description{
-Compares histograms of one or more parameters from the same output file, or one parameter from one or more output files.
+Compares histograms of one or more parameters from the same output file, or
+one parameter from one or more output files.
+Generates a plot showing the distributions of the same parameter from two
+posterior samples from BayesTraits MCMC OR a plot showing the distribution
+of two different parameters from a single BayesTraits posterior.
 }
 \examples{
 plotPosterior(cool-data.txt, c("Lh", "Alpha 1"))
 plotPosterior(cool-data.txt, params[c(1:2)])
 }
-\keyword{compare}
-\keyword{distribution}
-\keyword{histogram}
-\keyword{plot}
-\keyword{posterior}

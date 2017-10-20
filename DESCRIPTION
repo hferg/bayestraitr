@@ -1,12 +1,23 @@
 Package: bayestraitr
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: A set of tools to help with the interpretation and analysis of the output
+of BayesTraits MCMC analyses.
+Version: 0.0.1
+Author: Henry Ferguson-Gow
+Maintainer: Henry Ferguson-Gow <henry.fergusongow@gmail.com>
+Description: This package contains a set of functions to help with the 
+summarisation, visualisation and manipulation of the posterior that BayesTraits
+returns when run in MCMC mode. It includes functions to summarise and visualise
+the results of models that use the variable rates and variable transformation
+functionality of BayesTraits, and various functions to plot these results on
+phylogenies.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Imports:
+  stats,
+  utils,
+  ape,
+  ggplot2,
+  tidyverse
 RoxygenNote: 6.0.1

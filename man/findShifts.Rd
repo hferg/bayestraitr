@@ -7,12 +7,33 @@
 findShifts(PP, scalar, threshold)
 }
 \arguments{
-\item{PP}{The psotprocessor (localscalrPP) output.}
+\item{PP}{The postprocessor (\link[bayestraitr]{getRates}) output.}
 
-\item{scalar}{The scalar to find and plot from the post processor - delta/lambda/kappa/node/branch. If rate then the nodes and branches that are given scalars over the threshold are returned.}
+\item{scalar}{The scalar to find and plot from the post processor -
 
-\item{threshold}{Threshold of probability in posterior to display deltas for, defaults to zero (i.e. shows all deltas shaded proportionally to the posterior probability)}
+- delta
+
+- lambda
+
+- kappa
+
+- node
+
+- branch
+
+- rate (returns both branch and node scalars).}
+
+\item{threshold}{Threshold of probability in posterior to display deltas for,
+defaults to zero (i.e. shows all deltas shaded proportionally to the
+posterior probability)}
 }
 \description{
-Returns the node numbers of nodes that have been scaled in the posterior over the specified threshold. Works for rate scalars, and transformations. Also can return branch scalars, if rates. Only looks at the placement of scalars, not the cumulative downstream effects of scalars.
+Returns the node numbers of nodes that have been scaled in a specified
+fraction of iterations in the posterior of a BayesTraits MCMC analysis using
+variable rates of a variable transformation.
+Works for rate scalars, and transformations. Also can return branch scalars,
+if the specified scalar is "rate". Only looks at the position that scalars
+are placed, not the cumulative effects of these scalars (i.e. if a node is
+never given a scalar itself but is affected by a scalar on an ancestral node,
+it will not be identified by this function).
 }
