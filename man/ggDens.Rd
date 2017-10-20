@@ -7,7 +7,8 @@
 ggDens(output, pars, title = "")
 }
 \arguments{
-\item{dat}{The vector of paramater you want to see an autocorrelation plot for.}
+\item{dat}{The vector of paramater you want to see an autocorrelation plot
+for.}
 }
 \description{
 Make a density plot for an MCMC parameter using ggplot2.

@@ -4,11 +4,19 @@
 \alias{getStones}
 \title{getStones}
 \usage{
-getStones(logs, order = TRUE, paramcount = FALSE)
+getStones(logs, order = TRUE)
 }
 \arguments{
 \item{logs}{A vector of one or more log files from stepping stones analysis.}
+
+\item{order}{If TRUE then the resultant data.frame is ordered according to
+marginal likelihood.}
+}
+\value{
+A data.frame with a row per stones file, and a column with the
+marginal likelihoods of each model in.
 }
 \description{
-Get the marginal likelihoods from a single, or vector of, stepping stones log files.
+Get the marginal likelihoods from from one or more stepping stones log
+files.
 }

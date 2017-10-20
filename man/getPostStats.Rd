@@ -7,27 +7,31 @@
 getPostStats(logfile, params, thinning = 1, burnin = 0)
 }
 \arguments{
-\item{logfile}{The name of the logfile from a BayesTraits analysis.}
+\item{logfile}{The name of the logfile of the BayesTraits analysis.}
 
-\item{params}{A vector of one or more parameters of interests (e.g. a subset of getParams output)}
+\item{params}{The name(s) of one or more parameters present in the logfile.}
 
-\item{thinning}{Thinning parameter for the posterior - defaults to 1 (all samples). 2 uses every second sample, 3 every third and so on.}
+\item{thinning}{Thinning parameter for the posterior - defaults to 1
+(all samples). 2 uses every second sample, 3 every third and so on.}
 
-\item{burnin}{The number of generations to remove from the start of the chain as burnin.}
+\item{burnin}{The number of generations to remove from the start of the
+chain as burnin. Use if the chain has not reached convergence before sampling
+began. Useful if the burnin parameter for the analysis itself was not long
+enough.}
 }
 \value{
-A data frame of 3 columns, the parameter name, the mean of the parameter and its standard deviation.
+An object of class data.frame with a row for each parameter, and
+columns for the mean, median, mode and standard deviation of those
+parameters.
 }
 \description{
-A function to retuen the mean and SD of the posterior of one or more
-parameters from a BayesTraits analysis.
+Given a posterior of MCMC samples from a BayesTraits analysis (a logfile -
+typically with the .log.txt extension) and the name of one or morea
+parameters present in that logfile this will return the mean, median, mode
+and standard deviation of the parameter estimates.
 }
 \examples{
 params <- getParams("cool-data.log.txt")
 getPostMean("cool-data.log.txt", params[c(2:5)]
 getPostMean("cool-data.log.txt", "Lh")
 }
-\keyword{deviation}
-\keyword{mean}
-\keyword{posterior}
-\keyword{standard}

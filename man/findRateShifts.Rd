@@ -14,6 +14,7 @@ findRateShifts(PP, threshold, type)
 \item{type}{Node or branch}
 }
 \description{
-Return the node or branch numbers with rate scalars applied over the threshold number.
+Return the node or branch numbers with rate scalars applied over the
+threshold number.
 }
 \keyword{internal}

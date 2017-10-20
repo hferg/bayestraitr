@@ -9,9 +9,11 @@ findTransShifts(PP, threshold, cl)
 \arguments{
 \item{PP}{an output from rjpp}
 
-\item{threshold}{The threshold over which transformations are considered "significant".}
+\item{threshold}{The threshold over which transformations are considered
+"significant".}
 }
 \description{
-return the node numbers that have had transformations applied over a given threshold.
+return the node numbers that have had transformations applied over a given
+threshold.
 }
 \keyword{internal}

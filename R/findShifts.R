@@ -26,7 +26,7 @@
 #' - rate (returns both branch and node scalars).
 #' @param threshold The fraction of samples a scalar needs to be present in to
 #' be returned. e.g. if 0.5, then all scalars present in the posterior more than
-#' 50% of the time will be returned.
+#' 50\% of the time will be returned.
 #' @name findShifts
 #' @return A vector of node/edge numbers (depending on scalar) that are scaled
 #' over the threshold value.

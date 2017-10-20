@@ -9,7 +9,7 @@ findShifts(PP, scalar, threshold)
 \arguments{
 \item{PP}{The postprocessor (\link[bayestraitr]{getRates}) output.}
 
-\item{scalar}{The scalar to find and plot from the post processor -
+\item{scalar}{The scalar to find and plot from the post processo:r
 
 - delta
 
@@ -23,14 +23,20 @@ findShifts(PP, scalar, threshold)
 
 - rate (returns both branch and node scalars).}
 
-\item{threshold}{Threshold of probability in posterior to display deltas for,
-defaults to zero (i.e. shows all deltas shaded proportionally to the
-posterior probability)}
+\item{threshold}{The fraction of samples a scalar needs to be present in to
+be returned. e.g. if 0.5, then all scalars present in the posterior more than
+50\% of the time will be returned.}
+}
+\value{
+A vector of node/edge numbers (depending on scalar) that are scaled
+over the threshold value.
 }
 \description{
 Returns the node numbers of nodes that have been scaled in a specified
 fraction of iterations in the posterior of a BayesTraits MCMC analysis using
 variable rates of a variable transformation.
+}
+\details{
 Works for rate scalars, and transformations. Also can return branch scalars,
 if the specified scalar is "rate". Only looks at the position that scalars
 are placed, not the cumulative effects of these scalars (i.e. if a node is

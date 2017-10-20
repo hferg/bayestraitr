@@ -13,7 +13,7 @@ ggAutoCor(output, pars, conf, max.lag = NULL, min.lag = 0, title = "")
 
 \item{min.lag}{Minimum lag}
 
-\item{dat}{The vector of the paramater you want to see an autocorrelation plot for.}
+\item{dat}{The data for the plot, in an object of class vector.}
 }
 \description{
 Makes an autocorrealtion plot using ggplot2 - which looks nicer than the
