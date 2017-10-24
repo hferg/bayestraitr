@@ -13,5 +13,8 @@ Imports:
   utils,
   ape,
   ggplot2,
-  tidyverse
+  gridExtra,
+  pbapply,
+  phytools,
+  geiger
 RoxygenNote: 6.0.1
