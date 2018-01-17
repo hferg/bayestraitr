@@ -13,5 +13,7 @@ Imports:
   utils,
   ape,
   ggplot2,
-  tidyverse
+  tibble,
+  viridis,
+  ggthemes
 RoxygenNote: 6.0.1

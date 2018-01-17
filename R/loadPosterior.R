@@ -1,4 +1,4 @@
-#' btmcmc
+#' loadPosterior
 #'
 #' Returns the full mcmc object from a BayesTraits log file. This
 #' is used inside plot functions and so on, but might be useful for
@@ -12,11 +12,12 @@
 #' chain as burnin. Use if the chain has not reached convergence before sampling
 #' began. Useful if the burnin parameter for the analysis itself was not long
 #' enough.
-#' @return A data frame containing the sample from the BayesTraits mcmc. Column
-#' headers vary depending on the type of analysis.
+#' @return A tibble (see \link[tibble]{tibble}) with the class "bt_post" containing
+#' the samples from the BayesTraits MCMC chain. Headers vary on model type.
 #' @export
+#' @name loadPosterior
 
-btmcmc <- function(logfile, thinning = 1, burnin = 0) {
+loadPosterior <- function(logfile, thinning = 1, burnin = 0) {
 
   raw <- readLines(logfile)
   # TODO Return the model type with the output, and put this into classes.
@@ -35,7 +36,8 @@ btmcmc <- function(logfile, thinning = 1, burnin = 0) {
     }
 
   }
-  output <- output[seq.int(burnin, nrow(output), thinning), ]
+  output <- tibble::as.tibble(output[seq.int(burnin, nrow(output), thinning), ])
+  class(output) <- append("bt_post", class(output))
   return(output)
 }
 
