@@ -15,7 +15,6 @@
 #' See \link[viridis]{scale_color_viridis}. 
 #' Four options are available: "magma" (or "A"), "inferno" (or "B"), 
 #' "plasma" (or "C"), and "viridis" (or "D", the default option).
-#' @export
 #' @name autoplot.bt_post
 
 autoplot.bt_post <- function(posterior, parameters = NULL, col = NULL, 
@@ -44,8 +43,42 @@ autoplot.bt_post <- function(posterior, parameters = NULL, col = NULL,
 
 #' A plot method for the class "bt_post" that invokes the 
 #' autoplot method.
-#' @export
 
 plot.bt_post <- function(x, ...) {
   autoplot(x, ...)
+}
+
+#' Print function for the S3 class trees_summary
+#'
+#' @name print.trees_summary
+
+print.trees_summary <- function(x) {
+  n <- length(x)
+  nm <- names(x)
+  cat(n, "phylogenetic trees\n")
+  for (i in seq_along(x)) {
+    cat("tree", i, ":", nm[i], length(x[[i]]$tip.label), "tips\n")
+  }
+}
+
+#' A plot method for the class "trees_summary" - the default will
+#' plot all trees in a 2x2 plot, otherwise a tree(s) can be specified
+#' to plot alongside the time-tree.
+#' @name plot.trees_summary
+
+plot.trees_summary <- function(x, tree = NULL, tips = FALSE) {
+  if (is.null(tree)) {
+    nms <- names(x)
+    par(mfrow = c(2, 2))
+    for (i in seq_along(x)) {
+      plot(x[[i]], show.tip.label = tips, main = nms[i])
+    }
+  } else {
+    if (!tree %in% c("mean_tree", "median_tree", "mode_tree")) {
+      stop("'tree' must be either 'mean_tree', 'median_tree' or 'mode_tree'.")
+    }
+    par(mfrow = c(1, 2))
+    plot(x$original_tree, show.tip.label = tips, main = names(x)[1])
+    plot(x[[tree]], show.tip.label = tips, main = tree)
+  }
 }

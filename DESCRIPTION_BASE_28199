@@ -13,14 +13,5 @@ Imports:
   utils,
   ape,
   ggplot2,
-<<<<<<< HEAD
-  tibble,
-  viridis,
-  ggthemes
-=======
-  gridExtra,
-  pbapply,
-  phytools,
-  geiger
->>>>>>> 3c5ad8fa6a849b737080074adc9929227bd394a2
+  tidyverse
 RoxygenNote: 6.0.1
